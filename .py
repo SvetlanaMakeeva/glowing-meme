@@ -7,4 +7,4 @@ class TestQueueContainer(unittest.TestCase):
         self.test_node = None
 
     def testArea(self):
-        self.assertEqual(my_new_list.my_add(1, 15, "HelloWorld")
+        self.assertEqual(new_linked_list.insert_in_emptylist(50))
