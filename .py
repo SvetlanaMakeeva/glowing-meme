@@ -1,4 +1,4 @@
-class Node:
+class Node: 
     def __init__(self, data):
         self.item = data
         self.nref = None
@@ -34,3 +34,7 @@ class DoublyLinkedList:
         while n.nref is not None:
             n = n.nref
         n.pref.nref = None
+        
+new_linked_list = DoublyLinkedList()
+new_linked_list.insert_in_emptylist(50)
+new_linked_list.traverse_list()
