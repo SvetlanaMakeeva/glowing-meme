@@ -1,11 +1,10 @@
 import unittest
-from homework2 import ListContainer
+from homework2 import DoublyLinkedList
 
 class TestQueueContainer(unittest.TestCase):
 
     def _init_(self):
-        self.test_list = [16]
+        self.test_node = None
 
     def testArea(self):
-        self.assertEqual(my_new_list.my_add(1, 15, "HelloWorld"), self.test_list.append("HelloWorld"))
-        self.assertEqual(my_new_list.my_cout(1, 15), self.test_list[15])
+        self.assertEqual(my_new_list.my_add(1, 15, "HelloWorld")
