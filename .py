@@ -1,40 +1,79 @@
-class Node: 
-    def __init__(self, data):
-        self.item = data
-        self.nref = None
-        self.pref = None
-        
+class Node:
+
+      def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+ 
 class DoublyLinkedList:
-    def __init__(self):
-        self.start_node = None
-        
-    def insert_in_emptylist(self, data):
-        if self.start_node is None:
-            new_node = Node(data)
-            self.start_node = new_node
-        else:
-            print("list is not empty") 
-    def traverse_list(self):
-        if self.start_node is None:
-            print("List has no element")
+ 
+   
+      def __init__(self):
+        self.head = None
+ 
+      def push(self, new_data):
+ 
+        new_node = Node(new_data)
+        new_node.next = self.head
+ 
+        if self.head is not None:
+            self.head.prev = new_node
+ 
+  
+        self.head = new_node
+ 
+
+      def insertAfter(self, prev_node, new_data):
+ 
+
+        if prev_node is None:
+            print "the given previous node cannot be NULL"
             return
-        else:
-            n = self.start_node
-            while n is not None:
-                print(n.item , " ")
-                n = n.nref        
-    def delete_at_end(self):
-        if self.start_node is None:
-            print("The list has no element to delete")
-            return 
-        if self.start_node.nref is None:
-            self.start_node = None
+
+        new_node = Node(new_data)
+        new_node.next = prev_node.next
+        prev_node.next = new_node
+        new_node.prev = prev_node
+
+        if new_node.next is not None:
+            new_node.next.prev = new_node
+ 
+
+      def append(self, new_data):
+
+        new_node = Node(new_data)
+        new_node.next = None
+ 
+        if self.head is None:
+            new_node.prev = None
+            self.head = new_node
             return
-        n = self.start_node
-        while n.nref is not None:
-            n = n.nref
-        n.pref.nref = None
-        
-new_linked_list = DoublyLinkedList()
-new_linked_list.insert_in_emptylist(50)
-new_linked_list.traverse_list()
+
+        last = self.head
+        while(last.next is not None):
+        last = last.next
+        last.next = new_node
+        new_node.prev = last
+        return
+
+      def printList(self, node):
+ 
+        print "\nTraversal in forward direction"
+        while(node is not None):
+            print " % d" %(node.data),
+            last = node
+            node = node.next
+ 
+        print "\nTraversal in reverse direction"
+        while(last is not None):
+            print " % d" %(last.data),
+            last = last.prev
+
+llist = DoublyLinkedList()
+llist.append(7)
+llist.push(8)
+llist.push(3)
+llist.append(5)
+llist.insertAfter(llist.head.next, 9)
+print "Created DLL is: ",
+llist.printList(llist.head)
