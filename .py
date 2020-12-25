@@ -10,7 +10,7 @@ class Node:
 class DoublyLinkedList:
     def __init__(self):
 
-        self.start_node = None
+        self.start_node = self.end_node = None
 
     def insert_in_emptylist(self, data):
 
@@ -38,7 +38,7 @@ class DoublyLinkedList:
             print("The list has no element to delete")
             return
         if self.start_node.nref is None:
-            self.start_node = None
+            self.start_node = self.end_node = None
             return
         n = self.start_node
         while n.nref is not None:
