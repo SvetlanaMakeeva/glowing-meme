@@ -40,6 +40,8 @@ class DoublyLinkedList:
         if self.start_node.nref is None:
             self.start_node = self.end_node = None
             return
+        self.end_node.next = None
+        self.end_node = None
         n = self.start_node
         while n.nref is not None:
             n = n.nref
