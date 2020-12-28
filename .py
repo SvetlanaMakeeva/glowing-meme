@@ -12,7 +12,7 @@ class DoublyLinkedList:
 
         self.start_node = self.end_node = None
 
-    def insert_in_emptylist(self, data):
+    def my_add(self, data):
 
         if self.start_node is None:
             new_node = Node(data)
@@ -48,5 +48,5 @@ class DoublyLinkedList:
         n.pref.nref = None
 
 new_linked_list = DoublyLinkedList()
-new_linked_list.insert_in_emptylist(50)
+new_linked_list.my_add(50)
 new_linked_list.traverse_list()
