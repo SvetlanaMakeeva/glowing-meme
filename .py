@@ -14,11 +14,8 @@ class DoublyLinkedList:
 
     def my_add(self, data):
 
-        if self.start_node is None:
             new_node = Node(data)
             self.start_node = new_node
-        else:
-            print("list is not empty")
 
     def traverse_list(self):
 
