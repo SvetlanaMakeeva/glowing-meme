@@ -3,57 +3,52 @@ class Node:
     def __init__(self, data):
 
         self.item = data
-        self.nref = None
-        self.pref = None
+        self.next = None
+        self.prev = None
 
 
 class DoublyLinkedList:
     def __init__(self):
 
-        self.start_node = self.end_node = None
+        self.head = None
 
-    def my_add(self, data):
-
-            new_node = Node(data)
-            self.start_node = new_node
-
-    def traverse_list(self):
-
-        if self.start_node is None:
-            print("List has no element")
-            return
+    def push(self, data):
+        if self.head is None:
+            self.head = Node(data)
         else:
-            n = self.start_node
-            while n is not None:
-                print(n.item, " ")
-
-                n = n.nref
+            new_node = Node(data)
+            self.head.prev = new_node
+            new_node.next = self.head
+            new_node.prev = None
+            self.head = new_node
 
     def delete_at_start(self):
-        if self.start_node is None:
+        if self.head is None:
             print("The list has no element to delete")
             return
-        if self.start_node.nref is None:
-            self.start_node = None
+        if self.head.next is None:
+            self.head = None
             return
-        self.start_node = self.start_node.nref
-        self.start_prev = None
+        self.head = self.head.next
+        self.head.prev = None
 
-    def delete_at_end(self):
+    def returntouser(self):
+        if self.head is None:
+            return None
+        else:
+            temp = self.head
+            self.head = self.head.next
+            self.head.prev = None
+            return temp
 
-        if self.start_node is None:
-            print("The list has no element to delete")
-            return
-        if self.start_node.nref is None:
-            self.start_node = self.end_node = None
-            return
-        self.end_node.next = None
-        self.end_node = None
-        n = self.start_node
-        while n.nref is not None:
-            n = n.nref
-        n.pref.nref = None
+    def printstack(self):
 
-new_linked_list = DoublyLinkedList()
-new_linked_list.my_add(50)
-new_linked_list.traverse_list()
+        print("stack elements are:")
+        temp = self.head
+        while temp is not None:
+            print(temp.data, end="->")
+            temp = temp.next
+
+my_new_list =  DoublyLinkedList()
+my_new_list.push(8)
+my_new_list.printstack()
