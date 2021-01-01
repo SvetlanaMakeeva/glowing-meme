@@ -31,6 +31,9 @@ class DoublyLinkedList:
             return
         self.head = self.head.next
         self.head.prev = None
+        
+        def ret(self):
+         return self.head
 
     def returntouser(self):
         if self.head is None:
