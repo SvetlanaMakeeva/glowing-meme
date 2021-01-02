@@ -46,6 +46,10 @@ class DoublyLinkedList:
             temp = temp.next
 
 my_new_list = DoublyLinkedList()
+my_new_list.push(7)
 my_new_list.push(8)
 my_new_list.push(9)
+value = my_new_list.first()
+print(value) 
+my_new_list.delete_at_start()
 my_new_list.printstack()
