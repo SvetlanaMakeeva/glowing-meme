@@ -35,7 +35,7 @@ class DoublyLinkedList:
         return temp
 
     def first(self):
-       return self.head.data
+        return self.head.data
 
     def printstack(self):
 
