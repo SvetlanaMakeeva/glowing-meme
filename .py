@@ -8,3 +8,4 @@ class TestQueueContainer(unittest.TestCase):
 
     def testArea(self):
         self.assertEqual(my_new_list.push(7)), (my_new_list.push(8))
+        self.assertEqual(my_new_list.delete_at_start())
