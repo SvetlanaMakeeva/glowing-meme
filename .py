@@ -29,20 +29,13 @@ class DoublyLinkedList:
         if self.head.next is None:
             self.head = None
             return
+        temp = self.head
         self.head = self.head.next
         self.head.prev = None
-        
-        def ret(self):
-         return self.head
+        return temp
 
-    def returntouser(self):
-        if self.head is None:
-            return None
-        else:
-            temp = self.head
-            self.head = self.head.next
-            self.head.prev = None
-            return temp
+    def first(self):
+       return self.head.data
 
     def printstack(self):
 
@@ -52,6 +45,7 @@ class DoublyLinkedList:
             print(temp.data, end="->")
             temp = temp.next
 
-my_new_list =  DoublyLinkedList()
+my_new_list = DoublyLinkedList()
 my_new_list.push(8)
+my_new_list.push(9)
 my_new_list.printstack()
