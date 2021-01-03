@@ -32,7 +32,7 @@ class DoublyLinkedList:
         temp = self.head
         self.head = self.head.next
         self.head.prev = None
-        return temp
+        return self.head
 
     def first(self):
         return self.head.data
